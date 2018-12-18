@@ -1,17 +1,21 @@
 {
-  "name": "isomorphic-module-sample",
+  "name": "isomorphic-test-environment",
   "version": "1.0.0",
   "description": "",
+  "author": {
+    "name": "Wonho Jang",
+    "email": "jwh1807@gmail.com"
+  },
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "test:node": "npx cross-env NODE_ENV=test     npx -c \"mocha-webpack test/**/*.test.js --watch\"",
     "test:browser": "./node_modules/.bin/cross-env NODE_ENV=test     ./node_modules/.bin/karma start",
     "coverage:node": "npx cross-env NODE_ENV=test     npx nyc --reporter=text --reporter=html     npx -c \"mocha-webpack test/**/*.test.js\"",
-    "coverage:browser": "./node_modules/.bin/cross-env NODE_ENV=test COVERAGE=y     ./node_modules/.bin/karma start"
+    "coverage:browser": "./node_modules/.bin/cross-env NODE_ENV=test COVERAGE=y     ./node_modules/.bin/karma start",
+    "build": "npx cross-env NODE_ENV=development webpack",
+    "build:production": "npx cross-env NODE_ENV=production webpack"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
