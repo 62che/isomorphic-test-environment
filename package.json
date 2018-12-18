@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/cross-env NODE_ENV=test ./node_modules/.bin/nyc --reporter=text --reporter=html ./node_modules/.bin/mocha-webpack test/**/*.test.js"
+    "test:node": "npx cross-env NODE_ENV=test     npx -c \"mocha-webpack test/**/*.test.js --watch\"",
+    "test:browser": "./node_modules/.bin/cross-env NODE_ENV=test     ./node_modules/.bin/karma start",
+    "coverage:node": "npx cross-env NODE_ENV=test     npx nyc --reporter=text --reporter=html     npx -c \"mocha-webpack test/**/*.test.js\"",
+    "coverage:browser": "./node_modules/.bin/cross-env NODE_ENV=test COVERAGE=y     ./node_modules/.bin/karma start"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +33,7 @@
   },
   "nyc": {
     "sourceMap": false,
-    "instrument": false
+    "instrument": false,
+    "report-dir": "coverage/node"
   }
 }

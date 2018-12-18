@@ -2,6 +2,8 @@
 // Generated on Tue Dec 18 2018 09:45:49 GMT+0900 (대한민국 표준시)
 
 module.exports = function(config) {
+  console.log(process.env.TEST);
+  console.log(process.env.NODE_ENV);
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -51,7 +53,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha', 'coverage'],
+    reporters: process.env.COVERAGE ? ['mocha', 'coverage'] : ['mocha'],
 
 
     coverageReporter: {
@@ -89,7 +91,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: process.env.COVERAGE ? false : true,
 
     // Concurrency level
     // how many browser should be started simultaneous
