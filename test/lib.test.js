@@ -1,5 +1,5 @@
 import { assert, expect } from 'chai'
-import * as lib from '../src/lib'
+import { lib } from '../'
 
 describe('lib', function() {
   describe('lib.add()', function() {

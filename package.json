@@ -38,6 +38,10 @@
   "nyc": {
     "sourceMap": false,
     "instrument": false,
-    "report-dir": "coverage/node"
+    "report-dir": "coverage/node",
+    "exclude": [
+      "index.js",
+      "test/**/*.test.js"
+    ]
   }
 }

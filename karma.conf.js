@@ -39,7 +39,7 @@ module.exports = function(config) {
         rules: [
           {
             test: /\.js$/,
-            exclude: /node_modules|\.test\.js/,
+            exclude: /node_modules|\.test\.js|index.js/,
             use: [
               {loader: 'babel-loader'},
               {loader: 'istanbul-instrumenter-loader', options: {esModules: true}}
@@ -91,7 +91,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: process.env.COVERAGE ? false : true,
+    singleRun: process.env.COVERAGE ? true : false,
 
     // Concurrency level
     // how many browser should be started simultaneous

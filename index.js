@@ -1,5 +1,5 @@
 import * as lib from './src/lib'
 
-export default {
+export {
   lib
 }
