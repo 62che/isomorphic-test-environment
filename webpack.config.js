@@ -1,6 +1,6 @@
 var path = require('path')
 
-module.exports = {
+module.exports = () => ({
   entry: './src/lib.js',
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -16,4 +16,4 @@ module.exports = {
       }
     ]
   }
-}
+})
