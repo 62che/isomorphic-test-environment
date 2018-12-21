@@ -9,9 +9,11 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
+    "test": "npm run test:node",
     "test:circleci": "npx cross-env NODE_ENV=test     npx nyc --reporter=text  --reporter=html     npx -c \"mocha-webpack test/**/*.test.js --reporter=mocha-junit-reporter\"",
     "test:node": "npx cross-env NODE_ENV=test     npx -c \"mocha-webpack test/**/*.test.js --watch\"",
     "test:browser": "./node_modules/.bin/cross-env NODE_ENV=test     ./node_modules/.bin/karma start",
+    "coverage": "npm run coverage:node && npm run coverage:browser",
     "coverage:node": "npx cross-env NODE_ENV=test     npx nyc --reporter=text --reporter=html     npx -c \"mocha-webpack test/**/*.test.js\"",
     "coverage:browser": "./node_modules/.bin/cross-env NODE_ENV=test COVERAGE=y     ./node_modules/.bin/karma start",
     "build": "npx cross-env NODE_ENV=development webpack",
@@ -44,8 +46,5 @@
       "index.js",
       "test/**/*.test.js"
     ]
-  },
-  "dependencies": {
-    "mocha-junit-reporter": "^1.18.0"
   }
 }
