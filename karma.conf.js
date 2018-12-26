@@ -9,12 +9,12 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha'],
+    frameworks: ['mocha', 'karma-typescript'],
 
     // list of files / patterns to load in the browser
     files: [
-      // 'src/**/*.js',
-      'test/**/*.test.js'
+      'src/**/*.ts',
+      'test/**/*.test.ts'
     ],
 
     // list of files / patterns to exclude
@@ -23,36 +23,22 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      // 'src/**/*.js': ['webpack'],
-      'test/**/*.test.js': ['webpack']
-    },
-
-    webpack: {
-      module: {
-        rules: [{
-          test: /\.js$/,
-          exclude: /node_modules|\.test\.js|index.js/,
-          use: [
-            { loader: 'babel-loader' },
-            { loader: 'istanbul-instrumenter-loader', options: { esModules: true } }
-          ]
-        }]
-      }
+      'src/**/*.ts': ['karma-typescript'],
+      'test/**/*.test.ts': ['karma-typescript']
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: process.env.COVERAGE ? ['mocha', 'coverage'] : ['mocha'],
+    // reporters: process.env.COVERAGE ? ['mocha', 'coverage'] : ['mocha'],
+    reporters: ['mocha', 'karma-typescript'],
 
-    coverageReporter: {
-      // specify a common output directory
-      dir: 'coverage/browser',
-      reporters: [
-        { type: 'html' },
-        { type: 'text' }
-        // { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
-      ]
+    karmaTypescriptConfig: {
+      reports:
+      {
+        'html': 'coverage/browser',
+        'text': ''
+      }
     },
 
     // web server port

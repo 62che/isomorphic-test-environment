@@ -1,0 +1,17 @@
+{
+  "extension": [
+    ".ts"
+  ],
+  "include": [
+    "src"
+  ],
+  "reporter": [
+    "html",
+    "text"
+  ],
+  "all": true,
+  "cache": false,
+  "sourceMap": true,
+  "instrument": true,
+  "report-dir": "coverage/node"
+}

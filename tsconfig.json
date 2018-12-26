@@ -1,0 +1,16 @@
+{
+  "include": [
+    "index.ts",
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "outDir": "dist/",
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es5",
+    "allowJs": false
+  }
+}
