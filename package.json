@@ -46,5 +46,10 @@
       "index.js",
       "test/**/*.test.js"
     ]
+  },
+  "standard": {
+    "ignore": [
+      "test/**/*.test.js"
+    ]
   }
 }
