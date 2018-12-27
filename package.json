@@ -10,14 +10,14 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test:node",
-    "test:circleci": "npx cross-env NODE_ENV=test     npx nyc --reporter=text  --reporter=html     npx -c \"mocha-webpack test/**/*.test.js --reporter=mocha-junit-reporter\"",
-    "test:node": "npx cross-env NODE_ENV=test     npx -c \"mocha-webpack test/**/*.test.js --watch\"",
-    "test:browser": "./node_modules/.bin/cross-env NODE_ENV=test     ./node_modules/.bin/karma start",
+    "test:circleci": "npx cross-env NODE_ENV=test     npx nyc     npx -c \"mocha-webpack --reporter=mocha-junit-reporter\"",
+    "test:node": "npx cross-env NODE_ENV=test     npx -c \"mocha-webpack --watch\"",
+    "test:browser": "npx cross-env NODE_ENV=test     npx karma start",
     "coverage": "npm run coverage:node && npm run coverage:browser",
-    "coverage:node": "npx cross-env NODE_ENV=test     npx nyc --reporter=text --reporter=html     npx -c \"mocha-webpack test/**/*.test.js\"",
-    "coverage:browser": "./node_modules/.bin/cross-env NODE_ENV=test COVERAGE=y     ./node_modules/.bin/karma start",
-    "build": "npx cross-env NODE_ENV=development webpack",
-    "build:production": "npx cross-env NODE_ENV=production webpack"
+    "coverage:node": "npx cross-env NODE_ENV=test     npx nyc     npx -c \"mocha-webpack\"",
+    "coverage:browser": "npx cross-env NODE_ENV=test COVERAGE=y     npx karma start",
+    "build": "npx cross-env NODE_ENV=development     webpack",
+    "build:production": "npx cross-env NODE_ENV=production     webpack"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -37,15 +37,6 @@
     "mocha-webpack": "^1.1.0",
     "nyc": "^13.1.0",
     "webpack": "^3.12.0"
-  },
-  "nyc": {
-    "sourceMap": false,
-    "instrument": false,
-    "report-dir": "coverage/node",
-    "exclude": [
-      "index.js",
-      "test/**/*.test.js"
-    ]
   },
   "standard": {
     "ignore": [

@@ -1,0 +1,14 @@
+{
+  "all": true,
+  "cache": false,
+  "sourceMap": false,
+  "instrument": false,
+  "report-dir": "coverage/node",
+  "include": [
+    "src"
+  ],
+  "reporter": [
+    "html",
+    "text"
+  ]
+}
