@@ -11,7 +11,7 @@
   "scripts": {
     "test": "npm run test:node",
     "test:circleci": "npx cross-env NODE_ENV=test     npx nyc     npx -c \"mocha --reporter=mocha-junit-reporter\"",
-    "test:node": "npx cross-env NODE_ENV=test     npx mocha --watch\"",
+    "test:node": "npx cross-env NODE_ENV=test     npx mocha --watch --watch-extensions ts\"",
     "test:browser": "npx cross-env NODE_ENV=test     npx karma start",
     "coverage": "npm run coverage:node && npm run coverage:browser",
     "coverage:node": "npx cross-env NODE_ENV=test     npx nyc     npx -c \"mocha\"",
