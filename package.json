@@ -7,7 +7,11 @@
     "email": "the62che@gmail.com"
   },
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "npm run test:node",
     "test:circleci": "npx cross-env NODE_ENV=test     npx nyc     npx -c \"mocha --reporter=mocha-junit-reporter\"",
@@ -16,8 +20,8 @@
     "coverage": "npm run coverage:node && npm run coverage:browser",
     "coverage:node": "npx cross-env NODE_ENV=test     npx nyc     npx -c \"mocha\"",
     "coverage:browser": "npx cross-env NODE_ENV=test COVERAGE=y     npx karma start",
-    "build": "npx cross-env NODE_ENV=development webpack",
-    "build:production": "npx cross-env NODE_ENV=production webpack"
+    "build": "npx cross-env NODE_ENV=development tsc",
+    "build:production": "npx cross-env NODE_ENV=production tsc"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
